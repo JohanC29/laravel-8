@@ -45,8 +45,9 @@ class FortifyServiceProvider extends ServiceProvider
                 $usuario &&
                 Hash::check($request->password, $usuario->password)
             ) {
-                $roles = $usuario->roles()->get();
-                if ($roles->isNotEmpty()) {
+                $roles = $usuario->roles()->first();
+                if ($roles) {
+                    $request->session()->put('rol_slug',$roles->slug);
                     return $usuario;
                 }
                 return false;
