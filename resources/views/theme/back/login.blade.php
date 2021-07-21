@@ -11,7 +11,7 @@
     <meta name="robots" content="noindex,nofollow">
     <title>@yield("titulo","Login") - TutoBlog</title>
     <!-- Favicon icon -->
-   <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/back/images/favicon.png")}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset("assets/back/images/favicon.png")}}">
     <!-- Custom CSS -->
     <link href="{{asset("assets/back/css/style.min.css")}}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,16 +39,24 @@
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
+
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark"
+            style=" position: relative;
+                    min-height: 100vh;
+                "
+            >
             <div class="auth-box bg-dark border-top border-secondary">
                 <div id="loginform">
                     <div class="text-center pt-3 pb-3">
                         <span class="db"><img src="{{asset("assets/back/images/logo.png")}}" alt="logo" /></span>
                     </div>
                     <!-- Form -->
-                    <form  action="{{route("login")}}" class="form-horizontal mt-3" id="loginform" method="POST">
-                    @csrf
-                    <div class="row pb-4">
+                    @if ($errors->any())
+                    <x-alert tipo="danger" :mensaje="$errors" />
+                    @endif
+                    <form action="{{route("login")}}" class="form-horizontal mt-3" id="loginform" method="POST">
+                        @csrf
+                        <div class="row pb-4">
                             <div class="col-12">
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -102,6 +110,8 @@
                 </div>
             </div>
         </div>
+
+
         <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
@@ -128,20 +138,21 @@
     <!-- This page plugin js -->
     <!-- ============================================================== -->
     <script>
-
-    $(".preloader").fadeOut();
-    // ==============================================================
-    // Login and Recover Password
-    // ==============================================================
-    $('#to-recover').on("click", function() {
-        $("#loginform").slideUp();
-        $("#recoverform").fadeIn();
-    });
-    $('#to-login').click(function(){
-
+        $(".preloader").fadeOut();
         $("#recoverform").hide();
         $("#loginform").fadeIn();
-    });
+        // ==============================================================
+        // Login and Recover Password
+        // ==============================================================
+        $('#to-recover').on("click", function() {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+        $('#to-login').click(function() {
+
+            $("#recoverform").hide();
+            $("#loginform").fadeIn();
+        });
     </script>
 
 </body>

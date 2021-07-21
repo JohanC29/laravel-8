@@ -94,16 +94,31 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="{{asset("assets/back/libs/jquery/dist/jquery.min.js")}}"></script>
+    <script src="{{asset('assets/back/libs/jquery/dist/jquery.min.js')}}"></script>
     <!-- Bootstrap tether Core JavaScript -->
     <script src="{{asset("assets/back/libs/bootstrap/dist/js/bootstrap.bundle.min.js")}}"></script>
+
     <script src="{{asset("assets/back/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js")}}"></script>
     <script src="{{asset("assets/back/extra-libs/sparkline/sparkline.js")}}"></script>
     <!--Wave Effects -->
     <script src="{{asset("assets/back/js/waves.js")}}"></script>
     <!--Menu sidebar -->
-    <script src="{{asset("assets/back/js/sidebarmenu.js")}}"></script>
+    <script src="{{asset('assets/back/js/sidebarmenu.js')}}"></script>
+
+    <!-- Plugins -->
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/jquery.validate.min.js")}}"></script>
+    <script src="{{asset("assets/back/libs/jquery-validation/dist/localization/messages_es.js")}}"></script>
+
+    <!-- Pliugins de paginas especificadas -->
+    @yield("scriptsPlugins")
+
+    <!-- Scrip de paginas especificadas -->
+    @yield("scripts")
+
+
+
     <!--Custom JavaScript -->
-    <script src="{{asset("assets/back/js/custom.min.js")}}"></script>
+    <script src="{{asset('assets/back/js/custom.min.js')}}"></script>
+
 </body>
 </html>

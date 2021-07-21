@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+
+    return view('theme.back.login');
+});
+
+Route::get('mi-cuenta', function () {
     return view('welcome');
     // return view('theme.back.login');
 });
